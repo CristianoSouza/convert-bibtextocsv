@@ -16,7 +16,7 @@ from string import capwords
 entries = []
 entry = {}
 keys= { "title",
-        #"journal", 
+        "journal", 
         "year",
         #"doi",
         #"author",
@@ -28,7 +28,7 @@ keys= { "title",
 for line in stdin:
     #print(entry)
     if (match('^@', line.strip())):
-        print(line.strip())
+        #print(line.strip())
         if entry != {}:
             entries.append(entry)
             entry = {}
@@ -74,6 +74,21 @@ for item in entries:
     if "year" in item:
         year = item["year"]
     item["year"] = year
+
+    title = "Unknown title"
+    if "title" in item:
+        title = item["title"]
+    item["title"] = title
+
+    abstract = "Unknown abstract"
+    if "abstract" in item:
+        abstract = item["abstract"]
+    item["abstract"] = abstract
+
+    journal = "Unknown journal"
+    if "journal" in item:
+        journal = item["journal"]
+    item["journal"] = journal
 
     string = ""
     for k in keys:
