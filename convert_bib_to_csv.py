@@ -13,6 +13,7 @@ from re import findall
 from sys import stdin
 from string import capwords
 
+
 entries = []
 entry = {}
 keys= { "title",
@@ -24,6 +25,7 @@ keys= { "title",
         "url"
         #...
 }
+
 
 for line in stdin:
     #print(entry)
@@ -39,6 +41,7 @@ for line in stdin:
 
 entries.append(entry)    
 
+
 for item in entries:
     #print(entries)
     author = "Anonymous"
@@ -50,7 +53,7 @@ for item in entries:
         author = item["editor"]
     item["author"] = author
 
-    publish = "No publishing information"
+    '''publish = "No publishing information"
     if "journal" in item:
         publish = item["journal"]
     if "journaltitle" in item:
@@ -68,7 +71,7 @@ for item in entries:
         publish = capwords(publish)
     elif "publisher" in item:
         publish = item["publisher"]
-    item["publish"] = publish
+    item["publish"] = publish'''
     
     year = "Unknown year"
     if "year" in item:
@@ -85,13 +88,13 @@ for item in entries:
         abstract = item["abstract"]
     item["abstract"] = abstract
 
-    journal = "Unknown journal"
+    '''journal = "Unknown journal"
     if "journal" in item:
         journal = item["journal"]
-    item["journal"] = journal
+    item["journal"] = journal'''
 
     string = ""
     for k in keys:
         string += item[k] + "; "
-        
+
     print(string)
